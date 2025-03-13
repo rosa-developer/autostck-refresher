@@ -15,6 +15,10 @@ import Downloads from "./pages/Resources/Downloads";
 import VideoTutorials from "./pages/Resources/VideoTutorials";
 import Documentation from "./pages/Resources/Documentation";
 import HelpCenter from "./pages/Resources/HelpCenter";
+import ApiReference from "./pages/Resources/ApiReference";
+import CaseStudies from "./pages/Resources/CaseStudies";
+import Webinars from "./pages/Resources/Webinars";
+import Partners from "./pages/Resources/Partners";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +39,10 @@ const App = () => (
           <Route path="/resources/videos" element={<VideoTutorials />} />
           <Route path="/resources/documentation" element={<Documentation />} />
           <Route path="/resources/help-center" element={<HelpCenter />} />
+          <Route path="/resources/api-reference" element={<ApiReference />} />
+          <Route path="/resources/case-studies" element={<CaseStudies />} />
+          <Route path="/resources/webinars" element={<Webinars />} />
+          <Route path="/resources/partners" element={<Partners />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
