@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Book, FileText } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Resources = () => (
   <div className="space-y-6">
@@ -11,25 +13,30 @@ const Resources = () => (
         <ul className="space-y-3">
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Ultimate Guide to Vehicle Financing</a>
+            <Link to="/resources/guides" className="text-primary hover:underline">Ultimate Guide to Vehicle Financing</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">New vs. Used: Making the Right Choice</a>
+            <Link to="/resources/guides" className="text-primary hover:underline">New vs. Used: Making the Right Choice</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Understanding Vehicle Depreciation</a>
+            <Link to="/resources/guides" className="text-primary hover:underline">Understanding Vehicle Depreciation</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">The Complete Guide to Electric Vehicles</a>
+            <Link to="/resources/guides" className="text-primary hover:underline">The Complete Guide to Electric Vehicles</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Negotiation Tactics for Vehicle Purchasing</a>
+            <Link to="/resources/guides" className="text-primary hover:underline">Negotiation Tactics for Vehicle Purchasing</Link>
           </li>
         </ul>
+        <div className="mt-4">
+          <Button asChild>
+            <Link to="/resources/guides">View All Guides</Link>
+          </Button>
+        </div>
       </div>
       
       <div className="border rounded-lg p-6">
@@ -38,25 +45,30 @@ const Resources = () => (
         <ul className="space-y-3">
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Pre-Purchase Inspection Checklist (PDF)</a>
+            <Link to="/resources/downloads" className="text-primary hover:underline">Pre-Purchase Inspection Checklist (PDF)</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Vehicle Comparison Worksheet (Excel)</a>
+            <Link to="/resources/downloads" className="text-primary hover:underline">Vehicle Comparison Worksheet (Excel)</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Budget Planning Calculator (Excel)</a>
+            <Link to="/resources/downloads" className="text-primary hover:underline">Budget Planning Calculator (Excel)</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Private Sale Documentation Kit (ZIP)</a>
+            <Link to="/resources/downloads" className="text-primary hover:underline">Private Sale Documentation Kit (ZIP)</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <a href="#" className="text-primary hover:underline">Maintenance Schedule Templates (PDF)</a>
+            <Link to="/resources/downloads" className="text-primary hover:underline">Maintenance Schedule Templates (PDF)</Link>
           </li>
         </ul>
+        <div className="mt-4">
+          <Button asChild>
+            <Link to="/resources/downloads">View All Downloads</Link>
+          </Button>
+        </div>
       </div>
     </div>
     
@@ -71,7 +83,7 @@ const Resources = () => (
           { title: "Decoding the Vehicle History Report", duration: "7:19" },
           { title: "Red Flags to Watch For", duration: "9:05" }
         ].map((video, index) => (
-          <div key={index} className="group cursor-pointer">
+          <Link to="/resources/videos" key={index} className="group cursor-pointer">
             <div className="aspect-video bg-secondary relative rounded-md overflow-hidden mb-2">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="h-12 w-12 rounded-full bg-primary/90 flex items-center justify-center group-hover:bg-primary transition-colors">
@@ -84,8 +96,13 @@ const Resources = () => (
             </div>
             <h4 className="font-medium text-sm group-hover:text-primary transition-colors">{video.title}</h4>
             <p className="text-xs text-muted-foreground">{video.duration}</p>
-          </div>
+          </Link>
         ))}
+      </div>
+      <div className="mt-6 text-center">
+        <Button asChild>
+          <Link to="/resources/videos">View All Videos</Link>
+        </Button>
       </div>
     </div>
   </div>
