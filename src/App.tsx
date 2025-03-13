@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import GetStarted from "./pages/GetStarted";
 import Demo from "./pages/Demo";
 import Marketplace from "./pages/Marketplace";
+import Help from "./pages/Help";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/help" element={<Help />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
