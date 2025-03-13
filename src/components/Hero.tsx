@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, BarChart3, LineChart, TrendingUp } from 'lucide-react';
+import { ArrowRight, Car, CarFront, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -17,13 +17,13 @@ const Hero = () => {
         {/* Hero Content */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-8 text-xs rounded-full border bg-secondary animate-fade-in">
-            <span className="font-medium">Experience the future of stock tracking</span>
+            <span className="font-medium">Drive your sales with effective advertising</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-slide-up">
-            Simplify your 
+            Advertise your 
             <span className="relative text-primary ml-3">
-              stock management
+              vehicles easily
               <svg
                 className="absolute -bottom-2 -left-2 w-full h-3 text-primary/20"
                 viewBox="0 0 100 12"
@@ -40,7 +40,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up animation-delay-100">
-            A premium platform designed with an intuitive interface and powerful analytics to effortlessly track and optimize your inventory.
+            A premium platform designed for dealerships and private sellers to showcase vehicles with powerful tools and reach millions of potential buyers.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up animation-delay-200">
@@ -48,14 +48,14 @@ const Hero = () => {
               to="/get-started"
               className="button-hover w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Get Started
+              List Your Vehicle
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
-              to="/demo"
+              to="/marketplace"
               className="button-hover w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-md border bg-background/80 backdrop-blur-sm px-8 text-base font-medium shadow-sm transition-colors hover:bg-accent"
             >
-              View Demo
+              Browse Marketplace
             </Link>
           </div>
         </div>
@@ -64,21 +64,21 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
-              icon: <BarChart3 className="h-5 w-5 text-primary" />,
-              title: "Real-time Analytics",
-              description: "Track inventory levels and stock performance with intuitive dashboards.",
+              icon: <CarFront className="h-5 w-5 text-primary" />,
+              title: "Wide Exposure",
+              description: "Reach thousands of potential buyers with optimized vehicle listings.",
               delay: 300
             },
             {
-              icon: <TrendingUp className="h-5 w-5 text-primary" />,
-              title: "Trend Forecasting",
-              description: "Predict future stock needs based on historical data and market trends.",
+              icon: <BarChart3 className="h-5 w-5 text-primary" />,
+              title: "Analytics Dashboard",
+              description: "Track views, inquiries, and engagement with detailed reporting.",
               delay: 400
             },
             {
-              icon: <LineChart className="h-5 w-5 text-primary" />,
-              title: "Performance Reports",
-              description: "Generate comprehensive reports with actionable insights for your business.",
+              icon: <Car className="h-5 w-5 text-primary" />,
+              title: "Custom Showrooms",
+              description: "Create branded digital showrooms for your dealership inventory.",
               delay: 500
             }
           ].map((feature, index) => (
@@ -102,9 +102,9 @@ const Hero = () => {
         
         {/* Trust Indicators */}
         <div className="mt-20 text-center">
-          <p className="text-sm text-muted-foreground mb-6 animate-fade-in">Trusted by leading companies worldwide</p>
+          <p className="text-sm text-muted-foreground mb-6 animate-fade-in">Trusted by leading dealerships and manufacturers</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {['Microsoft', 'Google', 'Amazon', 'Apple', 'Meta'].map((company, index) => (
+            {['Toyota', 'Honda', 'Ford', 'BMW', 'Mercedes'].map((company, index) => (
               <div 
                 key={index}
                 className={cn(

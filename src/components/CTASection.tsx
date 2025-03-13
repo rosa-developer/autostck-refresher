@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Car } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -50,14 +50,14 @@ const CTASection = () => {
               "text-3xl md:text-4xl font-bold tracking-tight mb-6",
               isVisible ? "animate-slide-up" : "opacity-0"
             )}>
-              Ready to transform your inventory management?
+              Ready to sell your vehicle faster?
             </h2>
             <p className={cn(
               "text-lg text-muted-foreground max-w-2xl mx-auto mb-10",
               isVisible ? "animate-slide-up animation-delay-100" : "opacity-0"
             )}>
-              Join thousands of businesses that have streamlined their operations with AutoStock.
-              Get started today with our 14-day free trial.
+              Join thousands of successful sellers who have found buyers quickly on our platform.
+              Create your listing today and reach our network of active buyers.
             </p>
             
             <div className={cn(
@@ -68,14 +68,14 @@ const CTASection = () => {
                 to="/get-started"
                 className="button-hover w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Start Free Trial
+                Create Listing
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link
-                to="/demo"
+                to="/marketplace"
                 className="button-hover w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-md border bg-background/80 backdrop-blur-sm px-8 text-base font-medium shadow-sm transition-colors hover:bg-accent"
               >
-                Schedule Demo
+                Browse Vehicles
               </Link>
             </div>
           </div>
