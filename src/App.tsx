@@ -17,6 +17,7 @@ import Documentation from "./pages/Resources/Documentation";
 import HelpCenter from "./pages/Resources/HelpCenter";
 import ApiReference from "./pages/Resources/ApiReference";
 import CaseStudies from "./pages/Resources/CaseStudies";
+import Community from "./pages/Resources/Community";
 import Webinars from "./pages/Resources/Webinars";
 import Partners from "./pages/Resources/Partners";
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/resources/help-center" element={<HelpCenter />} />
           <Route path="/resources/api-reference" element={<ApiReference />} />
           <Route path="/resources/case-studies" element={<CaseStudies />} />
+          <Route path="/resources/community" element={<Community />} />
           <Route path="/resources/webinars" element={<Webinars />} />
           <Route path="/resources/partners" element={<Partners />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

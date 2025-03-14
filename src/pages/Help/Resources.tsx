@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Book, FileText } from "lucide-react";
+import { Book, FileText, Users } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -118,11 +118,19 @@ const Resources = () => (
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <Link to="/help" className="text-primary hover:underline">Contact Support</Link>
+            <Link to="/resources/community" className="text-primary hover:underline">Community Forums</Link>
           </li>
           <li className="flex items-center">
             <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
-            <Link to="/help" className="text-primary hover:underline">Buying Guide</Link>
+            <Link to="/resources/case-studies" className="text-primary hover:underline">Customer Case Studies</Link>
+          </li>
+          <li className="flex items-center">
+            <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
+            <Link to="/resources/api-reference" className="text-primary hover:underline">API Reference</Link>
+          </li>
+          <li className="flex items-center">
+            <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></div>
+            <Link to="/help" className="text-primary hover:underline">Contact Support</Link>
           </li>
         </ul>
         <div className="mt-6">
