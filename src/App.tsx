@@ -10,6 +10,8 @@ import GetStarted from "./pages/GetStarted";
 import Demo from "./pages/Demo";
 import Marketplace from "./pages/marketplace";
 import Help from "./pages/Help";
+import About from "./pages/About"; // New import
+import Contact from "./pages/Contact"; // New import
 import GuidesArticles from "./pages/Resources/GuidesArticles";
 import Downloads from "./pages/Resources/Downloads";
 import VideoTutorials from "./pages/Resources/VideoTutorials";
@@ -35,6 +37,8 @@ const App = () => (
           <Route path="/demo" element={<Demo />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/about" element={<About />} /> {/* New route */}
+          <Route path="/contact" element={<Contact />} /> {/* New route */}
           <Route path="/resources/guides" element={<GuidesArticles />} />
           <Route path="/resources/downloads" element={<Downloads />} />
           <Route path="/resources/videos" element={<VideoTutorials />} />

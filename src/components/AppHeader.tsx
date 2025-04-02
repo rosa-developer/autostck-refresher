@@ -71,6 +71,17 @@ const AppHeader = ({ variant = 'default', showLocationPin = false }: AppHeaderPr
                   </Link>
                 )}
                 
+                {variant === 'default' && (
+                  <>
+                    <Link to="/about" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="ghost" className="w-full justify-start">About</Button>
+                    </Link>
+                    <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="ghost" className="w-full justify-start">Contact</Button>
+                    </Link>
+                  </>
+                )}
+                
                 {variant !== 'marketplace' && (
                   <Link to="/marketplace" onClick={() => setIsMenuOpen(false)}>
                     <Button variant="ghost" className="w-full justify-start">Marketplace</Button>
@@ -96,7 +107,7 @@ const AppHeader = ({ variant = 'default', showLocationPin = false }: AppHeaderPr
                 {["Features", "Pricing", "About", "Contact"].map((item) => (
                   <Link 
                     key={item}
-                    to={`/#${item.toLowerCase()}`}
+                    to={item === "About" || item === "Contact" ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`}
                     className="text-sm font-medium opacity-80 hover:opacity-100 transition-all"
                   >
                     {item}
