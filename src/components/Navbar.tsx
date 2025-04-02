@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AppHeader from '@/components/AppHeader';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,12 +24,19 @@ const Navbar = () => {
   }, [scrolled]);
 
   return (
-    <div className={cn(
-      "fixed top-0 w-full z-50 transition-all duration-300",
-      scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
-    )}>
-      <AppHeader variant="default" />
-    </div>
+    <AnimatePresence>
+      <motion.div 
+        className={cn(
+          "fixed top-0 w-full z-50 transition-all duration-300",
+          scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        )}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      >
+        <AppHeader variant="default" />
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

@@ -1,33 +1,13 @@
 
 import React, { useRef, useEffect, useState } from 'react';
-import { CheckCircle2, Settings, Users, Shield, Clock, Zap, Activity, Rocket } from 'lucide-react';
+import { CheckCircle2, Settings, Users, Shield, Clock, Zap, Activity, Rocket, Monitor, MessageCircle, Search, Smartphone } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 const Features = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   const features = [
     {
@@ -56,52 +36,82 @@ const Features = () => {
       description: "Optimized for speed with instant content loading and responsive vehicle galleries."
     },
     {
-      icon: <Settings className="h-8 w-8 text-primary" />,
-      title: "Customization",
-      description: "Tailor your vehicle listings with custom fields and branded templates."
+      icon: <Monitor className="h-8 w-8 text-primary" />,
+      title: "Cross-platform",
+      description: "Reach buyers wherever they are with solutions optimized for desktop, tablet, and mobile."
+    },
+    {
+      icon: <MessageCircle className="h-8 w-8 text-primary" />,
+      title: "Instant Messaging",
+      description: "Connect with potential buyers in real-time through our integrated messaging platform."
+    },
+    {
+      icon: <Search className="h-8 w-8 text-primary" />,
+      title: "Advanced Search",
+      description: "Help buyers find exactly what they're looking for with powerful filtering capabilities."
+    },
+    {
+      icon: <Smartphone className="h-8 w-8 text-primary" />,
+      title: "Mobile App",
+      description: "Manage your listings on the go with our dedicated mobile app for iOS and Android."
     }
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-secondary to-background" ref={sectionRef}>
+    <section id="features" className="py-24 bg-gradient-to-b from-secondary/80 to-background" ref={sectionRef}>
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs rounded-full border border-primary/20 bg-primary/5 text-primary">
             <span className="font-medium">POWERFUL FEATURES</span>
           </div>
-          <h2 className={cn(
-            "text-4xl md:text-5xl font-bold mb-5",
-            isVisible ? "animate-slide-up" : "opacity-0"
-          )}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5">
             Everything you need to sell faster
           </h2>
-          <p className={cn(
-            "text-xl text-muted-foreground max-w-3xl mx-auto",
-            isVisible ? "animate-slide-up animation-delay-100" : "opacity-0"
-          )}>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Our comprehensive suite of tools helps you showcase your vehicles and connect with qualified buyers.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
           {features.map((feature, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className={cn(
-                "bg-white rounded-2xl p-8 shadow-sm border border-white/50",
-                "hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1",
-                isVisible ? "animate-scale-in" : "opacity-0",
-                { [`animation-delay-${(index + 2) * 100}`]: isVisible }
-              )}
+              className="bg-white rounded-2xl p-8 shadow-sm border border-white/50 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+              variants={item}
             >
               <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
