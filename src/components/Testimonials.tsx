@@ -1,32 +1,37 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 const testimonials = [
   {
-    quote: "AutoStock has completely transformed how we manage our inventory. The intuitive interface and powerful analytics have helped us reduce stockouts by 75%.",
+    quote: "AutoStock has completely transformed how we advertise vehicles. Our inventory turnover increased by 35% in just three months after joining the platform.",
     author: "Sarah Johnson",
-    role: "Operations Manager, TechCorp",
-    rating: 5
+    role: "Marketing Director, Premium Auto Group",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
-    quote: "I'm blown away by the simplicity and effectiveness of this platform. What used to take us days now happens automatically in the background.",
+    quote: "I'm blown away by the quality of leads we get through this platform. The targeting capabilities help us reach serious buyers who are ready to purchase.",
     author: "David Chen",
-    role: "CEO, Retail Solutions",
-    rating: 5
+    role: "Sales Manager, Luxury Motors",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
-    quote: "The forecasting tool alone has saved us thousands in preventing overstocking. This is hands-down the best inventory management system we've used.",
+    quote: "The analytics dashboard alone justifies the investment. We can track exactly which listings perform best and optimize our advertising strategy accordingly.",
     author: "Michael Rodriguez",
-    role: "Supply Chain Director, GlobalGoods",
-    rating: 5
+    role: "Digital Marketing Lead, City Auto Mall",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
-    quote: "After switching to AutoStock, we've seen a 30% increase in inventory turnover. The ROI on this platform is incredible.",
+    quote: "After switching to AutoStock, we've seen a 40% increase in qualified leads. The ROI on this platform is incredible compared to traditional advertising channels.",
     author: "Emily Parker",
-    role: "Inventory Specialist, FastTrack Logistics",
-    rating: 5
+    role: "Owner, Parker Family Dealerships",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3"
   }
 ];
 
@@ -76,27 +81,27 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-20" ref={sectionRef}>
+    <section className="py-24 bg-background" ref={sectionRef}>
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs rounded-full border border-primary/20 bg-primary/5 text-primary">
-            <span className="font-medium">Customer Stories</span>
+            <span className="font-medium">SUCCESS STORIES</span>
           </div>
           <h2 className={cn(
-            "section-title mb-4",
+            "text-4xl md:text-5xl font-bold mb-5",
             isVisible ? "animate-slide-up" : "opacity-0"
           )}>
-            Trusted by businesses worldwide
+            Trusted by automotive professionals
           </h2>
           <p className={cn(
-            "section-subtitle",
+            "text-xl text-muted-foreground max-w-3xl mx-auto",
             isVisible ? "animate-slide-up animation-delay-100" : "opacity-0"
           )}>
-            See what our customers are saying about how AutoStock has transformed their inventory management.
+            Hear from dealerships and private sellers who have transformed their automotive advertising strategy.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           <div 
             className={cn(
               "overflow-hidden rounded-2xl",
@@ -111,24 +116,46 @@ const Testimonials = () => {
               {testimonials.map((testimonial, idx) => (
                 <div 
                   key={idx} 
-                  className="w-full p-8 md:p-12 glass"
+                  className="w-full"
                   style={{ width: `${100 / testimonials.length}%` }}
                 >
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={20} 
-                        fill={i < testimonial.rating ? "currentColor" : "none"} 
-                        className={i < testimonial.rating ? "text-yellow-400" : "text-gray-300"} 
-                      />
-                    ))}
-                  </div>
-                  <blockquote className="text-xl md:text-2xl font-medium mb-6">"{testimonial.quote}"</blockquote>
-                  <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-secondary/50">
+                    <CardContent className="p-8 md:p-12">
+                      <div className="flex flex-col md:flex-row gap-8 items-start">
+                        <div className="flex-shrink-0">
+                          <div className="relative">
+                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
+                              <img 
+                                src={testimonial.image} 
+                                alt={testimonial.author}
+                                className="w-full h-full object-cover" 
+                              />
+                            </div>
+                            <div className="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-full">
+                              <Quote size={16} />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex mb-4">
+                            {[...Array(5)].map((_, i) => (
+                              <Star 
+                                key={i} 
+                                size={20} 
+                                fill={i < testimonial.rating ? "currentColor" : "none"} 
+                                className={i < testimonial.rating ? "text-yellow-400" : "text-gray-300"} 
+                              />
+                            ))}
+                          </div>
+                          <blockquote className="text-xl md:text-2xl font-medium mb-6 italic">"{testimonial.quote}"</blockquote>
+                          <div>
+                            <p className="font-semibold text-lg">{testimonial.author}</p>
+                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               ))}
             </div>
@@ -140,18 +167,18 @@ const Testimonials = () => {
           )}>
             <button 
               onClick={handlePrev}
-              className="p-2 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"
+              className="p-4 rounded-full bg-white border shadow-sm hover:bg-accent transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={24} />
             </button>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    idx === activeIndex ? "bg-primary scale-125" : "bg-primary/30"
+                    idx === activeIndex ? "bg-primary scale-125 w-6" : "bg-primary/30"
                   }`}
                   aria-label={`Go to testimonial ${idx + 1}`}
                 />
@@ -159,7 +186,7 @@ const Testimonials = () => {
             </div>
             <button 
               onClick={handleNext}
-              className="p-2 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"
+              className="p-4 rounded-full bg-white border shadow-sm hover:bg-accent transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={24} />

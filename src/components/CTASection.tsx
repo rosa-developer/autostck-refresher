@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { ArrowRight, Car } from 'lucide-react';
+import { ArrowRight, Car, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -30,53 +30,82 @@ const CTASection = () => {
     };
   }, []);
 
+  const benefits = [
+    "30-day free trial with all premium features",
+    "No credit card required to get started",
+    "Dedicated support team for automotive dealers",
+    "Cancel anytime with no commitments"
+  ];
+
   return (
-    <section className="py-20" ref={sectionRef}>
+    <section className="py-24" ref={sectionRef}>
       <div className="container px-4 mx-auto">
         <div className={cn(
-          "max-w-4xl mx-auto rounded-3xl p-8 md:p-16 glass overflow-hidden relative",
+          "max-w-5xl mx-auto rounded-3xl p-8 md:p-16 overflow-hidden relative",
           isVisible ? "animate-fade-in" : "opacity-0"
         )}>
-          {/* Background Elements */}
-          <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 rounded-full" />
-            <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/10 rounded-full" />
-            {/* Glass shine effect */}
-            <div className="absolute inset-0 bg-glass-shine animate-pulse-slow" />
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-blue-600/90 -z-10" />
+          
+          {/* Background pattern */}
+          <div className="absolute inset-0 opacity-10 -z-10">
+            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <path d="M 8 0 L 0 0 0 8" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
           </div>
           
-          <div className="text-center">
-            <h2 className={cn(
-              "text-3xl md:text-4xl font-bold tracking-tight mb-6",
-              isVisible ? "animate-slide-up" : "opacity-0"
-            )}>
-              Ready to sell your vehicle faster?
-            </h2>
-            <p className={cn(
-              "text-lg text-muted-foreground max-w-2xl mx-auto mb-10",
-              isVisible ? "animate-slide-up animation-delay-100" : "opacity-0"
-            )}>
-              Join thousands of successful sellers who have found buyers quickly on our platform.
-              Create your listing today and reach our network of active buyers.
-            </p>
+          <div className="text-center md:text-left flex flex-col md:flex-row items-center gap-10">
+            <div className="md:flex-1">
+              <h2 className={cn(
+                "text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white",
+                isVisible ? "animate-slide-up" : "opacity-0"
+              )}>
+                Ready to transform your automotive advertising?
+              </h2>
+              <p className={cn(
+                "text-lg text-white/80 max-w-2xl mb-8",
+                isVisible ? "animate-slide-up animation-delay-100" : "opacity-0"
+              )}>
+                Join thousands of successful dealerships who have boosted their sales with our premium advertising platform.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {benefits.map((benefit, index) => (
+                  <div 
+                    key={index} 
+                    className={cn(
+                      "flex items-center text-white",
+                      isVisible ? "animate-slide-up" : "opacity-0", 
+                      { [`animation-delay-${(index + 2) * 100}`]: isVisible }
+                    )}
+                  >
+                    <CheckCircle className="mr-3 h-5 w-5 text-white" />
+                    <span>{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
             
             <div className={cn(
-              "flex flex-col sm:flex-row items-center justify-center gap-4",
+              "md:flex-shrink-0 w-full md:w-auto",
               isVisible ? "animate-slide-up animation-delay-200" : "opacity-0"
             )}>
-              <Link
-                to="/get-started"
-                className="button-hover w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                Create Listing
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-              <Link
-                to="/marketplace"
-                className="button-hover w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-md border bg-background/80 backdrop-blur-sm px-8 text-base font-medium shadow-sm transition-colors hover:bg-accent"
-              >
-                Browse Vehicles
-              </Link>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 shadow-xl">
+                <h3 className="text-2xl font-bold text-white mb-4">Start your free trial</h3>
+                <p className="text-white/80 mb-6">No credit card required. Upgrade anytime.</p>
+                <Link
+                  to="/get-started"
+                  className="button-hover w-full flex items-center justify-center rounded-md bg-white px-8 py-4 text-base font-medium text-primary shadow-lg transition-colors hover:bg-white/90"
+                >
+                  Get Started Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

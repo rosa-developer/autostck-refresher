@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
-import { CheckCircle2, Settings, Users, Shield, Clock, Zap } from 'lucide-react';
+import { CheckCircle2, Settings, Users, Shield, Clock, Zap, Activity, Rocket } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Features = () => {
@@ -31,56 +31,55 @@ const Features = () => {
 
   const features = [
     {
-      icon: <Settings className="h-8 w-8 text-primary" />,
-      title: "Advanced Customization",
-      description: "Tailor the platform to your specific business needs with advanced configuration options."
+      icon: <Activity className="h-8 w-8 text-primary" />,
+      title: "Performance Tracking",
+      description: "Monitor your listings' performance with real-time analytics and engagement metrics."
     },
     {
       icon: <Users className="h-8 w-8 text-primary" />,
       title: "Team Collaboration",
-      description: "Enable seamless teamwork with role-based access controls and real-time updates."
+      description: "Enable seamless teamwork with role-based access controls for your dealership staff."
     },
     {
       icon: <Shield className="h-8 w-8 text-primary" />,
-      title: "Data Security",
-      description: "Enterprise-grade security ensures your inventory data remains protected at all times."
+      title: "Secure Transactions",
+      description: "Enterprise-grade security ensures your business data remains protected at all times."
     },
     {
-      icon: <Clock className="h-8 w-8 text-primary" />,
-      title: "Automated Scheduling",
-      description: "Schedule inventory checks and generate reports automatically at your preferred intervals."
+      icon: <Rocket className="h-8 w-8 text-primary" />,
+      title: "Boosted Visibility",
+      description: "Put your vehicles in front of qualified buyers with premium placement options."
     },
     {
       icon: <Zap className="h-8 w-8 text-primary" />,
-      title: "Lightning Performance",
-      description: "Optimized for speed with instant data processing even for large inventory catalogs."
+      title: "Fast Performance",
+      description: "Optimized for speed with instant content loading and responsive vehicle galleries."
     },
     {
-      icon: <CheckCircle2 className="h-8 w-8 text-primary" />,
-      title: "Compliance Ready",
-      description: "Built-in tools to help you stay compliant with industry regulations and standards."
+      icon: <Settings className="h-8 w-8 text-primary" />,
+      title: "Customization",
+      description: "Tailor your vehicle listings with custom fields and branded templates."
     }
   ];
 
   return (
-    <section id="features" className="py-20 bg-secondary" ref={sectionRef}>
+    <section id="features" className="py-24 bg-gradient-to-b from-secondary to-background" ref={sectionRef}>
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs rounded-full border border-primary/20 bg-primary/5 text-primary">
-            <span className="font-medium">Powerful Features</span>
+            <span className="font-medium">POWERFUL FEATURES</span>
           </div>
           <h2 className={cn(
-            "section-title mb-4",
+            "text-4xl md:text-5xl font-bold mb-5",
             isVisible ? "animate-slide-up" : "opacity-0"
           )}>
-            Everything you need to manage your inventory
+            Everything you need to sell faster
           </h2>
           <p className={cn(
-            "section-subtitle",
+            "text-xl text-muted-foreground max-w-3xl mx-auto",
             isVisible ? "animate-slide-up animation-delay-100" : "opacity-0"
           )}>
-            Our comprehensive suite of features streamlines your inventory management process, 
-            giving you the tools to make informed decisions and optimize your stock levels.
+            Our comprehensive suite of tools helps you showcase your vehicles and connect with qualified buyers.
           </p>
         </div>
 
@@ -90,7 +89,7 @@ const Features = () => {
               key={index}
               className={cn(
                 "bg-white rounded-2xl p-8 shadow-sm border border-white/50",
-                "hover:shadow-md transition-all duration-300 ease-in-out transform hover:-translate-y-1",
+                "hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1",
                 isVisible ? "animate-scale-in" : "opacity-0",
                 { [`animation-delay-${(index + 2) * 100}`]: isVisible }
               )}
