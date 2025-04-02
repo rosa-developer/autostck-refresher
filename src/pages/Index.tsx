@@ -88,7 +88,7 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Featured Image Section */}
+        {/* Premium Porsche Showcase Section */}
         <section className="py-20 bg-white">
           <div className="container px-4 mx-auto">
             <div className="max-w-5xl mx-auto">
@@ -99,9 +99,9 @@ const Index = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Premium Showroom Experience</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Premium Performance Showcase</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Our platform creates stunning digital showrooms that help your vehicles stand out from the competition.
+                  Discover luxury performance vehicles that represent the pinnacle of automotive engineering and design excellence.
                 </p>
               </motion.div>
               
@@ -114,8 +114,8 @@ const Index = () => {
               >
                 <AspectRatio ratio={16 / 9}>
                   <img 
-                    src="https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070" 
-                    alt="Modern car showroom with luxury vehicles" 
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070" 
+                    alt="Modern Porsche sports car in dynamic setting" 
                     className="object-cover w-full h-full"
                   />
                 </AspectRatio>
@@ -131,7 +131,7 @@ const Index = () => {
                       viewport={{ once: true }}
                     >
                       <CarFront className="h-6 w-6 text-primary mb-2" />
-                      <h4 className="font-semibold">360° Tours</h4>
+                      <h4 className="font-semibold">Premium Listings</h4>
                     </motion.div>
                     <motion.div 
                       className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg"
