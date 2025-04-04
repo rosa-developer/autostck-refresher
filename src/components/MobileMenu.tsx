@@ -70,7 +70,7 @@ const MobileMenu = ({ variant = 'default', onClose }: MobileMenuProps) => {
     }
   };
 
-  const item = {
+  const menuItemVariants = {
     hidden: { y: 20, opacity: 0 },
     show: { y: 0, opacity: 1 }
   };
@@ -99,7 +99,7 @@ const MobileMenu = ({ variant = 'default', onClose }: MobileMenuProps) => {
       >
         <nav className="space-y-4">
           {menuItems.map((item) => (
-            <motion.div key={item.title} variants={item}>
+            <motion.div key={item.title} variants={menuItemVariants}>
               <Link
                 to={item.href}
                 onClick={onClose}
