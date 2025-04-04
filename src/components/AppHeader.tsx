@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X, MapPin } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { 
   Sheet, 
   SheetContent, 
   SheetTrigger 
 } from '@/components/ui/sheet';
+import MobileMenu from './MobileMenu';
 
 type AppHeaderProps = {
   variant?: 'default' | 'marketplace' | 'help';
@@ -59,45 +61,15 @@ const AppHeader = ({ variant = 'default', showLocationPin = false }: AppHeaderPr
         {isMobile ? (
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="relative">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent>
-              <div className="flex flex-col gap-4 pt-8">
-                {variant !== 'default' && (
-                  <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                    <Button variant="ghost" className="w-full justify-start">Home</Button>
-                  </Link>
-                )}
-                
-                {variant === 'default' && (
-                  <>
-                    <Link to="/about" onClick={() => setIsMenuOpen(false)}>
-                      <Button variant="ghost" className="w-full justify-start">About</Button>
-                    </Link>
-                    <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                      <Button variant="ghost" className="w-full justify-start">Contact</Button>
-                    </Link>
-                  </>
-                )}
-                
-                {variant !== 'marketplace' && (
-                  <Link to="/marketplace" onClick={() => setIsMenuOpen(false)}>
-                    <Button variant="ghost" className="w-full justify-start">Marketplace</Button>
-                  </Link>
-                )}
-                
-                {variant !== 'help' && (
-                  <Link to="/help" onClick={() => setIsMenuOpen(false)}>
-                    <Button variant="ghost" className="w-full justify-start">Help Center</Button>
-                  </Link>
-                )}
-                
-                <Link to="/get-started" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full">Get Started</Button>
-                </Link>
-              </div>
+            <SheetContent className="p-0">
+              <MobileMenu 
+                variant={variant} 
+                onClose={() => setIsMenuOpen(false)} 
+              />
             </SheetContent>
           </Sheet>
         ) : (
